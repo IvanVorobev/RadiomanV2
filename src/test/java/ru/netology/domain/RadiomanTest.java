@@ -5,12 +5,11 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class RadiomanTest {
-    Radioman radioman = new Radioman();
 
     @Test
     void increaseCurrentVolume() {
 
-        radioman.setCurrentVolume(7);
+        Radioman radioman = new Radioman(7, 100, 0);
         radioman.increaseCurrentVolume();
 
         assertEquals(8, radioman.getCurrentVolume());
@@ -19,7 +18,7 @@ class RadiomanTest {
     @Test
     void decreaseCurrentVolume() {
 
-        radioman.setCurrentVolume(4);
+        Radioman radioman = new Radioman(4, 100, 0);
         radioman.decreaseCurrentVolume();
 
         assertEquals(3, radioman.getCurrentVolume());
@@ -28,16 +27,16 @@ class RadiomanTest {
     @Test
     void increaseCurrentVolumeMax() {
 
-        radioman.setCurrentVolume(100);
+        Radioman radioman = new Radioman(100, 100, 0);
         radioman.increaseCurrentVolume();
 
-        assertEquals(10, radioman.getCurrentVolume());
+        assertEquals(100, radioman.getCurrentVolume());
     }
 
     @Test
     void decreaseCurrentVolumeMin() {
 
-        radioman.setCurrentVolume(0);
+        Radioman radioman = new Radioman(0, 100, 0);
         radioman.decreaseCurrentVolume();
 
         assertEquals(0, radioman.getCurrentVolume());
@@ -46,7 +45,7 @@ class RadiomanTest {
     @Test
     public void nextStation() {
 
-        radioman.setCurrentStation(8);
+        Radioman radioman = new Radioman(8, 10);
         radioman.nextStation();
 
         assertEquals(9, radioman.getCurrentStation());
@@ -55,16 +54,16 @@ class RadiomanTest {
     @Test
     public void previoustStation() {
 
-        radioman.setCurrentStation(6);
+        Radioman radioman = new Radioman(5, 10);
         radioman.previoustStation();
 
-        assertEquals(5, radioman.getCurrentStation());
+        assertEquals(4, radioman.getCurrentStation());
     }
 
     @Test
     public void nextStationMax() {
 
-        radioman.setCurrentStation(10);
+        Radioman radioman = new Radioman(10, 10);
         radioman.nextStation();
 
 
@@ -74,7 +73,7 @@ class RadiomanTest {
     @Test
     public void previoustStationMin() {
 
-        radioman.setCurrentStation(0);
+        Radioman radioman = new Radioman(0, 10);
         radioman.previoustStation();
 
         assertEquals(10, radioman.getCurrentStation());
@@ -83,6 +82,7 @@ class RadiomanTest {
     @Test
     void setCurrentStationOver() {
 
+        Radioman radioman = new Radioman();
         radioman.setCurrentStation(13);
 
         assertEquals(10, radioman.getCurrentStation());
@@ -91,24 +91,61 @@ class RadiomanTest {
     @Test
     void setCurrentStationUnder() {
 
+        Radioman radioman = new Radioman();
         radioman.setCurrentStation(-1);
 
         assertEquals(0, radioman.getCurrentStation());
     }
 
     @Test
-    void setCurrentVolumeOver() {
+    void setCurrentStationMin() {
 
-        radioman.setCurrentVolume(110);
+        Radioman radioman = new Radioman();
+        radioman.setCurrentStation(0);
 
-        assertEquals(100, radioman.getCurrentVolume());
+        assertEquals(0, radioman.getCurrentStation());
+    }
+
+    @Test
+    void setCurrentStation() {
+
+        Radioman radioman = new Radioman(9, 10);
+
+        assertEquals(9, radioman.getCurrentStation());
     }
 
     @Test
     void setCurrentVolumeUnder() {
 
+        Radioman radioman = new Radioman();
         radioman.setCurrentVolume(-1);
 
         assertEquals(0, radioman.getCurrentVolume());
+    }
+
+    @Test
+    void setCurrentVolumeMin() {
+
+        Radioman radioman = new Radioman();
+        radioman.setCurrentVolume(0);
+
+        assertEquals(0, radioman.getCurrentVolume());
+    }
+
+    @Test
+    void setCurrentVolumeOver() {
+
+        Radioman radioman = new Radioman();
+        radioman.setCurrentVolume(103);
+
+        assertEquals(100, radioman.getCurrentVolume());
+    }
+
+    @Test
+    void SetCurrentVolume() {
+
+        Radioman radioman = new Radioman(8, 100, 0);
+
+        assertEquals(8, radioman.getCurrentVolume());
     }
 }

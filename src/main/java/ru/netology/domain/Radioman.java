@@ -2,20 +2,24 @@ package ru.netology.domain;
 
 public class Radioman {
     private int currentStation;
-    private int maxStation;
-    private int minStation;
+    private int maxStation = 10;
+    private int minStation = 0;
     private int currentVolume;
-    private int maxVolume;
-    private int minVolume;
+    private int maxVolume = 100;
+    private int minVolume = 0;
 
-
-    public void setMaxStation(int maxStation) {
-        this.maxStation = maxStation;
+    public Radioman() {
     }
 
+    public Radioman(int currentVolume, int maxVolume, int minVolume) {
+        this.currentVolume = currentVolume;
+        this.maxVolume = maxVolume;
+        this.minVolume = minVolume;
+    }
 
-    public void setMinStation(int minStation) {
-        this.minStation = minStation;
+    public Radioman(int currentStation, int maxStation) {
+        this.currentStation = currentStation;
+        this.maxStation = maxStation;
     }
 
 
@@ -36,17 +40,16 @@ public class Radioman {
         this.currentStation = currentStation;
     }
 
-
     public int getCurrentVolume() {
         return currentVolume;
     }
 
     public void setCurrentVolume(int currentVolume) {
-        if (currentVolume >= maxVolume) {
+        if (currentVolume > maxVolume) {
             this.currentVolume = maxVolume;
             return;
         }
-        if (currentVolume <= minVolume) {
+        if (currentVolume < minVolume) {
             this.currentVolume = minVolume;
             return;
         }
@@ -69,13 +72,6 @@ public class Radioman {
         this.currentStation--;
     }
 
-    public void setMaxVolume(int maxVolume) {
-        this.maxVolume = maxVolume;
-    }
-
-    public void setMinVolume(int minVolume) {
-        this.minVolume = minVolume;
-    }
 
     public void increaseCurrentVolume() {
         if (currentVolume >= maxVolume) {
