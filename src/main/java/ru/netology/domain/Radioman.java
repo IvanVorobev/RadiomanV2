@@ -5,13 +5,14 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
+
 public class Radioman {
-    private int currentStation;
+    private int currentStation = 5;
     private int maxStation = 10;
     private int minStation = 0;
-    private int currentVolume;
+    private int currentVolume = 50;
     private int maxVolume = 100;
     private int minVolume = 0;
 
@@ -45,7 +46,7 @@ public class Radioman {
             this.currentStation = minStation;
             return;
         }
-        this.currentStation++;
+        currentStation++;
     }
 
     public void previoustStation() {
@@ -53,22 +54,21 @@ public class Radioman {
             this.currentStation = maxStation;
             return;
         }
-        this.currentStation--;
+        currentStation--;
     }
 
     public void increaseCurrentVolume() {
         if (currentVolume >= maxVolume) {
             return;
         }
-        this.currentVolume++;
+        currentVolume++;
     }
 
     public void decreaseCurrentVolume() {
         if (currentVolume <= minVolume) {
             return;
         }
-        this.currentVolume--;
-
+        currentVolume--;
     }
 
 }
