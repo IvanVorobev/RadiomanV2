@@ -122,9 +122,9 @@ class RadiomanTest {
     @Test
     void setCurrentStation() {
 
-        radioman.setCurrentStation(9);
+        radioman.setCurrentStation(3);
 
-        assertEquals(9, radioman.getCurrentStation());
+        assertEquals(3, radioman.getCurrentStation());
     }
 
     @Test
