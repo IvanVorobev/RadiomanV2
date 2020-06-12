@@ -8,7 +8,6 @@ class RadiomanTest {
 
     @Test
     void increaseCurrentVolume() {
-
         Radioman radioman = new Radioman(7, 100, 0);
         radioman.increaseCurrentVolume();
 
@@ -17,7 +16,6 @@ class RadiomanTest {
 
     @Test
     void decreaseCurrentVolume() {
-
         Radioman radioman = new Radioman(4, 100, 0);
         radioman.decreaseCurrentVolume();
 
@@ -26,7 +24,6 @@ class RadiomanTest {
 
     @Test
     void increaseCurrentVolumeMax() {
-
         Radioman radioman = new Radioman(100, 100, 0);
         radioman.increaseCurrentVolume();
 
@@ -35,7 +32,6 @@ class RadiomanTest {
 
     @Test
     void decreaseCurrentVolumeMin() {
-
         Radioman radioman = new Radioman(0, 100, 0);
         radioman.decreaseCurrentVolume();
 
@@ -44,7 +40,6 @@ class RadiomanTest {
 
     @Test
     public void nextStation() {
-
         Radioman radioman = new Radioman(8, 10);
         radioman.nextStation();
 
@@ -53,7 +48,6 @@ class RadiomanTest {
 
     @Test
     public void previoustStation() {
-
         Radioman radioman = new Radioman(5, 10);
         radioman.previoustStation();
 
@@ -62,7 +56,6 @@ class RadiomanTest {
 
     @Test
     public void nextStationMax() {
-
         Radioman radioman = new Radioman(10, 10);
         radioman.nextStation();
 
@@ -72,7 +65,6 @@ class RadiomanTest {
 
     @Test
     public void previoustStationMin() {
-
         Radioman radioman = new Radioman(0, 10);
         radioman.previoustStation();
 
@@ -81,7 +73,6 @@ class RadiomanTest {
 
     @Test
     void setCurrentStationOver() {
-
         Radioman radioman = new Radioman();
         radioman.setCurrentStation(13);
 
@@ -90,7 +81,6 @@ class RadiomanTest {
 
     @Test
     void setCurrentStationUnder() {
-
         Radioman radioman = new Radioman();
         radioman.setCurrentStation(-1);
 
@@ -99,7 +89,6 @@ class RadiomanTest {
 
     @Test
     void setCurrentStationMin() {
-
         Radioman radioman = new Radioman();
         radioman.setCurrentStation(0);
 
@@ -108,7 +97,6 @@ class RadiomanTest {
 
     @Test
     void setCurrentStation() {
-
         Radioman radioman = new Radioman(9, 10);
 
         assertEquals(9, radioman.getCurrentStation());
@@ -116,7 +104,6 @@ class RadiomanTest {
 
     @Test
     void setCurrentVolumeUnder() {
-
         Radioman radioman = new Radioman();
         radioman.setCurrentVolume(-1);
 
@@ -125,7 +112,6 @@ class RadiomanTest {
 
     @Test
     void setCurrentVolumeMin() {
-
         Radioman radioman = new Radioman();
         radioman.setCurrentVolume(0);
 
@@ -134,7 +120,6 @@ class RadiomanTest {
 
     @Test
     void setCurrentVolumeOver() {
-
         Radioman radioman = new Radioman();
         radioman.setCurrentVolume(103);
 
@@ -142,8 +127,7 @@ class RadiomanTest {
     }
 
     @Test
-    void SetCurrentVolume() {
-
+    void setCurrentVolume() {
         Radioman radioman = new Radioman(8, 100, 0);
 
         assertEquals(8, radioman.getCurrentVolume());
